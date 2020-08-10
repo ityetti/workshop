@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MageMastery\Todo\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
