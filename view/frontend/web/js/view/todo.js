@@ -22,7 +22,7 @@ define([
 
         switchStatus: function (data, event) {
             const taskId = $(event.target).data('id');
-            
+
             var items = this.tasks().map(function (task) {
                 if (task.id === taskId) {
                     task.status = !task.status;
@@ -32,6 +32,23 @@ define([
             });
 
             this.tasks(items);
-        }
+        },
+
+        deleteTask: function (taskId) {
+            var tasks = [];
+
+            if (this.tasks().length === 1) {
+                this.tasks(tasks);
+                return;
+            }
+
+            this.tasks().forEach(function (task) {
+                if (task.id !== taskId) {
+                    tasks.push(task);
+                }
+            })
+
+            this.tasks(tasks);
+        },
     });
 });
