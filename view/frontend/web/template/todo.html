@@ -1,10 +1,15 @@
 <div class="form-container">
-    <input type="text" class="task-input-field" id="todo-task-input" name="task" ko-value="newTaskLabel" value=""
-           placeholder="Add a new task..."
+    <input type="text" class="task-input-field" id="todo-task-input" name="task"
+           data-bind="
+               value: newTaskLabel,
+               event: {'keyup': checkKey}
+           "
+           value="" placeholder="Add a new task..."
     />
     <div class="actions-toolbar">
         <div class="primary">
-            <button type="button" title="Add task" class="action save primary" data-bind="click: addTask" id="add-new-task-button">
+            <button type="button" title="Add task" class="action save primary"
+                    data-bind="click: addTask" id="add-new-task-button">
                 <span>Add task</span>
             </button>
         </div>
